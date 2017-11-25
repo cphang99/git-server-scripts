@@ -17,4 +17,5 @@ mkdir -p "${REPO_PATH}"
 cd ${REPO_PATH}
 git init --bare --shared >/dev/null
 echo "Git repository ${REPO_NAME} created"
+echo $2 > description
 cd - >/dev/null

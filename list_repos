@@ -8,5 +8,8 @@ for repo_name in os.listdir(root_dir):
     description = os.path.join(root_dir, repo_name, 'description')
     with open(description, 'ro') as f:
         for line in f:
-            print '{0} .... {1}'.format(repo_name, line)
+            repos[repo_name] = line
             break
+
+for k,v in sorted(repos.items()):
+    print '{0} .... {1}'.format(k, v),

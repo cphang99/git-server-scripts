@@ -13,7 +13,18 @@ fi
 REPO_PATH=""${GIT_DIR}"/"${REPO_NAME}".git"
 if [ -d "${REPO_PATH}" ]
 then
-	rm -r ${REPO_PATH}
+	echo -n "Are you sure you want to delete repo "${REPO_NAME}"? (Y/N) "
+	read response
+	if [ ${response^^} == 'Y' ]
+	then
+		rm -r ${REPO_PATH}
+	elif [ ${response^^} == 'N' ]
+	then
+		exit 0
+	else
+		echo "Invalid repsonse given, repository retained"
+		exit 0
+	fi
 	echo "Repository "${REPO_NAME}" deleted"
 	exit 0
 else

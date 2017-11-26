@@ -1,1 +1,2 @@
-GIT_DIR=/home/pi/git/repos
+PI_GIT_DIR=/home/pi/git/repos
+PI_ROOT_DIR=/srv/git

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo "help_gitpi ... This help"
+echo "setup_repo [REPO_NAME] [DESCRIPTION] ... Setup a new git repo on the server"
+echo "remove_repo [REPO_NAME] ... Remove a repo from the server"
+echo "list_repos ... List all the git repos on the server"

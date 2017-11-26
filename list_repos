@@ -1,8 +1,22 @@
 #! /usr/bin/env python
 
 import os
+import subprocess32
 
-root_dir = "/srv/git"
+#Emulating bash source in python
+# adapted from https://stackoverflow.com/a/3505826
+#For obtaining the PI_ROOT_DIR environment variable
+root_dir = ""
+command = ['bash', '-c',
+        'set -a && source repo_env && env']
+proc = subprocess32.Popen(command, stdout = subprocess32.PIPE)
+for line in proc.stdout:
+    (key, _, value) = line.partition('=')
+    if(key == 'PI_ROOT_DIR'):
+        root_dir = value.strip()
+
+proc.communicate()
+
 repos = {}
 for repo_name in os.listdir(root_dir):
     description = os.path.join(root_dir, repo_name, 'description')
